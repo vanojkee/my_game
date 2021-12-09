@@ -16,13 +16,18 @@ class Ship():
         self.rect = self.image.get_rect()
         # Каждый новый корабль появляется у нижнего края экрана
         self.rect.midbottom = self.screen_rect.midbottom
+        # Сохранение вещественной координаты центра коробля.
+        self.x = float(self.rect.x)
 
     def update(self):
         '''Обновляем позицию коробля с учётом флага'''
         if self.moving_right:
-            self.rect.x += 1
+            self.x += self.settings.ship_speed_factor
+#            self.rect.x += 1
         if self.moving_left:
-            self.rect.x -= 1
+            self.x -= self.settings.ship_speed_factor
+#            self.rect.x -= 1
+        self.rect.x = self.x
 
     def blitme(self):
         '''Рисует корабль в новой позиции'''
