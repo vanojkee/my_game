@@ -6,6 +6,6 @@ class Settings():
         # Параметры экрана
         self.screen_width = 800
         self.screen_height = 400
-        self.bg_color = (173, 216, 230)
+        self.bg_color = (0, 0, 0)
 
-        self.ship_speed_factor = 1.5
+        self.ship_speed_factor = 0.5

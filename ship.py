@@ -12,7 +12,7 @@ class Ship():
         self.moving_left = False
 
         # Загружает изображение корабля и получает прямоугольник
-        self.image = pygame.image.load('images\ship4.bmp')
+        self.image = pygame.image.load('images\ship5.bmp')
         self.rect = self.image.get_rect()
         # Каждый новый корабль появляется у нижнего края экрана
         self.rect.midbottom = self.screen_rect.midbottom
@@ -21,10 +21,10 @@ class Ship():
 
     def update(self):
         '''Обновляем позицию коробля с учётом флага'''
-        if self.moving_right:
+        if self.moving_right and self.rect.right < self.screen_rect.right:
             self.x += self.settings.ship_speed_factor
 #            self.rect.x += 1
-        if self.moving_left:
+        if self.moving_left and self.rect.left > 0:
             self.x -= self.settings.ship_speed_factor
 #            self.rect.x -= 1
         self.rect.x = self.x
